@@ -10,7 +10,7 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <header className={`${styles.header} d-flex flex-row align-items-center`}>
+    <header className={`${styles.header} d-flex flex-rr align-items-center`}>
       <div className={`${styles.responsive} d-flex flex-rr flex-fill`}>
         <div>
           <Link to="/" onClick={resetGame}>
