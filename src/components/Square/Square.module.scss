@@ -1,0 +1,31 @@
+.square {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  margin: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+}
+
+.square:hover {
+  cursor: pointer;
+  background-color: lightgreen;
+}
+
+.piece {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
+}
