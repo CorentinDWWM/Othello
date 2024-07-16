@@ -1,3 +1,5 @@
+@use "../../assets/styles/mixins" as mixin;
+
 .square {
   width: 50px;
   height: 50px;
@@ -8,6 +10,11 @@
   align-items: center;
   font-size: 24px;
   color: white;
+
+  @include mixin.sm-lt {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .square:hover {
@@ -20,6 +27,11 @@
   height: 40px;
   border-radius: 50%;
   position: absolute;
+
+  @include mixin.sm-lt {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .black {

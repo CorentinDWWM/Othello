@@ -1,0 +1,13 @@
+@use "../../assets/styles/mixins" as mixin;
+
+h2 {
+  @include mixin.sm-lt {
+    margin-top: 50px;
+  }
+}
+
+.table {
+  @include mixin.sm-lt {
+    margin-bottom: 50px;
+  }
+}

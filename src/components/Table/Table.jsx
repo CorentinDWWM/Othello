@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SquareContext } from "../../context/SquareContext";
+import styles from "./Table.module.scss";
 
 const Table = () => {
   const { isBlackNext, createTable, winner } = useContext(SquareContext);
@@ -17,7 +18,9 @@ const Table = () => {
           )}
         </h2>
       )}
-      <div className="wFull d-flex center">{createTable()}</div>
+      <div className={`wFull d-flex center ${styles.table}`}>
+        {createTable()}
+      </div>
     </>
   );
 };
