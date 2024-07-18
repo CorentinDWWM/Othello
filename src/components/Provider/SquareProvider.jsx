@@ -3,6 +3,7 @@ import { SquareContext } from "../../context/SquareContext";
 import Square from "../Square/Square";
 
 export default function SquareProvider({ children }) {
+  // initialisation des carrés
   const initialSquares = () => {
     const squares = Array(64).fill(null);
     squares[27] = "W";
@@ -36,6 +37,7 @@ export default function SquareProvider({ children }) {
     }
   };
 
+  // vérification des mouvements restants
   const hasValidMove = (squares, color) => {
     const directions = [-1, 1, -8, 8, -9, -7, 9, 7];
 
@@ -67,7 +69,8 @@ export default function SquareProvider({ children }) {
 
   // gestion des clicks sur les pièces
   const handleClick = (i) => {
-    if (squares[i] || winner) return; // Pour une case déjà occupée ou si il y a un vainqueur
+    // Pour une case déjà occupée ou si il y a un vainqueur
+    if (squares[i] || winner) return;
 
     const newSquares = squares.slice();
     const currentColor = isBlackNext ? "B" : "W";
@@ -103,6 +106,7 @@ export default function SquareProvider({ children }) {
     }
   };
 
+  // pour rendre le carré
   const renderSquare = (i) => {
     return <Square value={squares[i]} onClick={() => handleClick(i)} />;
   };

@@ -5,6 +5,7 @@ export default function Jeu() {
   const [isMobile, setIsMobile] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
 
+  // pour le mode paysage
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 500);
   };
@@ -25,6 +26,7 @@ export default function Jeu() {
       window.removeEventListener("orientationchange", handleOrientationChange);
     };
   }, []);
+
   return (
     <div className="table mhFull wFull d-flex center flex-column ta-center">
       {isMobile ? (
