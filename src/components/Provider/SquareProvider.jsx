@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SquareContext } from "../../context/SquareContext";
 import Square from "../Square/Square";
 
@@ -16,6 +16,35 @@ export default function SquareProvider({ children }) {
   const [squares, setSquares] = useState(initialSquares);
   const [isBlackNext, setIsBlackNext] = useState(true);
   const [winner, setWinner] = useState(null);
+  const [blackPlayer, setBlackPlayer] = useState(
+    localStorage.getItem("blackPlayer") || ""
+  );
+  const [whitePlayer, setWhitePlayer] = useState(
+    localStorage.getItem("whitePlayer") || ""
+  );
+  const [allPlayers, setAllPlayers] = useState([]);
+
+  // gestion des pseudos des joueurs
+
+  useEffect(() => {
+    localStorage.setItem("blackPlayer", blackPlayer);
+    localStorage.setItem("whitePlayer", whitePlayer);
+  }, [blackPlayer, whitePlayer]);
+  // function handleClickForm(e) {
+  //   console.log(playerOne);
+  //   console.log(playerTwo);
+  //   setAllPlayers([...allPlayers, { ...playerOne }, { ...playerTwo }]);
+  // }
+
+  // function handleInputOne(e) {
+  //   let value = e.target.value;
+  //   setPlayerOne({ ...playerOne, value });
+  // }
+
+  // function handleInputTwo(e) {
+  //   let value = e.target.value;
+  //   setPlayerTwo({ ...playerTwo, value });
+  // }
 
   // pour redémarrer la partie
   const resetGame = () => {
@@ -29,9 +58,15 @@ export default function SquareProvider({ children }) {
     const blackCount = squares.filter((square) => square === "B").length;
     const whiteCount = squares.filter((square) => square === "W").length;
     if (blackCount > whiteCount) {
-      return `Noir avec ${blackCount} pions contre ${whiteCount} pions Blanc`;
+      return (
+        blackPlayer ||
+        `Noir avec ${blackCount} pions contre ${whiteCount} pions Blanc`
+      );
     } else if (whiteCount > blackCount) {
-      return `Blanc avec ${whiteCount} pions contre ${blackCount} pions Noir`;
+      return (
+        whitePlayer ||
+        `Blanc avec ${whiteCount} pions contre ${blackCount} pions Noir`
+      );
     } else {
       return `Égalité avec ${blackCount} chacun`;
     }
@@ -108,7 +143,7 @@ export default function SquareProvider({ children }) {
 
   // pour rendre le carré
   const renderSquare = (i) => {
-    return <Square value={squares[i]} onClick={() => handleClick(i)} />;
+    return <Square key={i} value={squares[i]} onClick={() => handleClick(i)} />;
   };
 
   // création de l'othellier
@@ -136,6 +171,10 @@ export default function SquareProvider({ children }) {
         resetGame,
         winner,
         checkGameOver,
+        whitePlayer,
+        blackPlayer,
+        setBlackPlayer,
+        setWhitePlayer,
       }}
     >
       {children}

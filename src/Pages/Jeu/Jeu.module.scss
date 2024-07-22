@@ -1,0 +1,31 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.container {
+  @include mixin.lg-lt {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.regles {
+  width: 30%;
+  font-weight: 400;
+  background-color: black;
+  border: 1px solid white;
+  padding: 20px;
+  color: white;
+
+  @include mixin.lg-lt {
+    margin: 50px 0px;
+    width: 60%;
+  }
+
+  @include mixin.sm-lt {
+    width: 80%;
+  }
+
+  span {
+    color: lightgreen;
+    font-weight: bold;
+  }
+}

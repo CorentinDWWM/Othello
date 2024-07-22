@@ -7,15 +7,14 @@
   margin-top: 15px;
 
   &:hover {
-    background-color: lightgreen;
-    border: 2px solid lightgreen;
+    opacity: 0.8;
   }
 }
 
 .btn-primary {
   background-color: green;
   color: white;
-  border: 2px solid green;
+  border: 2px solid darkgreen;
 }
 
 .btn-reverse-primary {
