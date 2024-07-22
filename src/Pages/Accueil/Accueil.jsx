@@ -39,7 +39,11 @@ export default function Accueil() {
           />
         </div>
       </div>
-      <Link onClick={resetGame} to="/game" className="btn btn-primary mt-10">
+      <Link
+        onClick={resetGame}
+        to={blackPlayer && whitePlayer ? "/game" : "/"}
+        className="btn btn-primary mt-10"
+      >
         Nouvelle Partie
       </Link>
     </div>
