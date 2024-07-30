@@ -30,21 +30,6 @@ export default function SquareProvider({ children }) {
     localStorage.setItem("blackPlayer", blackPlayer);
     localStorage.setItem("whitePlayer", whitePlayer);
   }, [blackPlayer, whitePlayer]);
-  // function handleClickForm(e) {
-  //   console.log(playerOne);
-  //   console.log(playerTwo);
-  //   setAllPlayers([...allPlayers, { ...playerOne }, { ...playerTwo }]);
-  // }
-
-  // function handleInputOne(e) {
-  //   let value = e.target.value;
-  //   setPlayerOne({ ...playerOne, value });
-  // }
-
-  // function handleInputTwo(e) {
-  //   let value = e.target.value;
-  //   setPlayerTwo({ ...playerTwo, value });
-  // }
 
   // pour redémarrer la partie
   const resetGame = () => {
